@@ -5,7 +5,7 @@ import Home from 'routes/Home';
 import Profile from 'routes/Profile';
 import Navigation from 'components/Navigation';
 
-const AppRouter = ({isLoggedIn}) => {
+const AppRouter = ({isLoggedIn, userObj}) => {
     console.log(isLoggedIn)
     return (
         <Router>
@@ -17,7 +17,7 @@ const AppRouter = ({isLoggedIn}) => {
                 {isLoggedIn ? 
                 (
                     <>
-                        <Route path='/'><Home/></Route>
+                        <Route path='/'><Home userObj={userObj}/></Route>
                         <Route path='/profile'><Profile/></Route>
                         {/* <Redirect from="*" to="/" /> */}
                     </>
