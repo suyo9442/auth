@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -12,6 +12,18 @@ const firebaseConfig = {
     measurementId: process.env.REACT_APP_MEASUR_ID
   };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
 const authService = getAuth();
-export {authService, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut};
+const dbService = getFirestore(app);
+
+export {
+  authService, 
+  dbService,
+  collection,
+  addDoc,
+  getDocs,
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut,
+};
